@@ -11,9 +11,19 @@ module.exports = class Event extends ExtensibleFunction {
   }
 
   async trigger(...args) {
-    let i = 0
-    for (const listener of this.listeners) {
-      await listener(...args)
+    if (this.options.timeout) {
+      if (this.timeout) {
+        clearTimeout(this.timeout)
+      }
+      this.timeout = setTimeout(async () => {
+        for (const listener of this.listeners) {
+          await listener(...args)
+        }
+      }, this.options.timeout)
+    } else {
+      for (const listener of this.listeners) {
+        await listener(...args)
+      }
     }
   }
 }

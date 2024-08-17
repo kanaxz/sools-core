@@ -7,8 +7,14 @@ module.exports = class IntermediateArray extends mixer.extends(Array, [Eventable
 
   push(...args) {
     const result = super.push(...args)
+    this.pushed(args)
     this.changed()
     return result
+  }
+
+  pushed(objects) {
+    this.emit('pushed', objects)
+    this.changed()
   }
 
   pop(...args) {
