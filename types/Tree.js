@@ -4,16 +4,16 @@ const ExtensibleFunction = require('./ExtensibleFunction')
 let id = 0
 class Tree extends ExtensibleFunction {
 
-
-
   constructor(...values) {
     super((...args) => this.call(...args))
     this.content = values
   }
+
   call(...args) {
     this.push(...args)
     return this
   }
+
   push(...objs) {
     this.content.push(...objs)
   }
