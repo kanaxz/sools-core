@@ -1,6 +1,6 @@
 {
  "name": "sools-core",
- "version": "1.9.0",
+ "version": "1.14.0",
  "description": "",
  "main": "index.js",
  "devDependencies": {
@@ -8,5 +8,9 @@
   "mocha": "^10.2.0"
  },
  "author": "",
- "license": "ISC"
+ "license": "ISC",
+ "repository": {
+  "type": "git",
+  "url": "https://github.com/kanaxz/sools-core"
+ }
 }
