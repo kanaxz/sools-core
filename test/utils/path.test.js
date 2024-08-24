@@ -1,4 +1,3 @@
-require('../../setup')
 const { pathsCopy, pathsDiff } = require('../../utils/path')
 const mixer = require('../../mixer')
 const { expect, assert } = require('chai')

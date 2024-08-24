@@ -1,4 +1,5 @@
 const Mixin = require('./Mixin')
+const Base = require('./Base')
 const getMixin = (dependency) => {
   return dependency.mixin || dependency
 }
@@ -40,16 +41,13 @@ const buildBase = (base, dependenciesTree) => {
 }
 
 const getDependencies = (dependencies = []) => {
-  const baseType = mixer.Base
-  if (!baseType) {
+  if (!mixer.base) {
     return dependencies
   }
-
-  return [baseType, ...dependencies]
+  return [mixer.base, ...dependencies]
 }
 
 const mixer = {
-  base: null,
   proxy(...args) {
     const mixin = this.mixin(...args)
     const type = this.extends([mixin]);
@@ -112,5 +110,7 @@ const mixer = {
     return false
   },
 }
+
+mixer.base = mixer.mixin(Base)
 
 module.exports = mixer

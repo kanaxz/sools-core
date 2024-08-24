@@ -1,4 +1,3 @@
-require('../../setup')
 const Propertiable = require('../../mixins/Propertiable')
 const mixer = require('../../mixer')
 const { expect, assert } = require('chai')

@@ -1,4 +1,3 @@
-require('../../setup')
 const Eventable = require('../../mixins/Eventable')
 const mixer = require('../../mixer')
 const { expect, assert } = require('chai')

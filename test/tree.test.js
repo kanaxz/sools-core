@@ -1,4 +1,3 @@
-require('../setup')
 const Tree = require('../types/Tree')
 const { expect, assert } = require('chai')
 

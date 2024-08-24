@@ -1,4 +1,3 @@
-require('../../setup')
 const { getCommonAncestor } = require('../../utils/proto')
 const { expect, assert } = require('chai')
 

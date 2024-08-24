@@ -1,7 +1,6 @@
-const mixer = require('./mixer')
 const Definitions = require('./Definitions')
 
-module.exports = mixer.mixin((base) => {
+module.exports = (base) => {
   return class Base extends base {
 
     static hasMixin(mixin) {
@@ -65,4 +64,4 @@ module.exports = mixer.mixin((base) => {
     }
 
   }
-})
+}

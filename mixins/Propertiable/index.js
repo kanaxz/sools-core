@@ -77,5 +77,6 @@ const mixin = mixer.mixin([Eventable, Destroyable], (base) => {
     }
   }
 })
+  .define()
 
 module.exports = mixin
