@@ -87,6 +87,7 @@ const Eventable = mixer.mixin([Destroyable], (baseClass) => {
 
     destroy() {
       super.destroy()
+      this.emit('destroying')
       Object.values(events)
         .forEach((event) => {
           event.listeners.forEach((listener) => {
