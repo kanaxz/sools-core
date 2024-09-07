@@ -61,9 +61,11 @@ describe('propertiable', (t) => {
     const instance = new O2()
     const callback = eventCallback()
     instance.on('propertyChanged:m1', callback)
-    instance.m1 = true
-    expect(callback.triggered).to.be.equal(true)
+    await instance.set({
+      m1: true
+    })
     expect(instance.m1).to.be.equal(true)
+    expect(callback.triggered).to.be.equal(true)
   })
 
   it('mixin and mixin', async () => {

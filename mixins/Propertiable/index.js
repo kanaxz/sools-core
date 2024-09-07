@@ -3,6 +3,8 @@ const Destroyable = require("../Destroyable")
 const Eventable = require('../Eventable')
 const Properties = require('./Properties')
 
+const VALUES = Symbol('values')
+
 const mixin = mixer.mixin([Eventable, Destroyable], (base) => {
   return class Propertiable extends base {
     static sanitizeProperty(property) {
@@ -12,7 +14,7 @@ const mixin = mixer.mixin([Eventable, Destroyable], (base) => {
     defineProperty(property) {
       Object.defineProperty(this, property.name, {
         get: function () {
-          return this.values[property.name]
+          return this[VALUES][property.name]
         },
         set: async function (newValue) {
           if (this.destroyed) { return }
@@ -41,31 +43,40 @@ const mixin = mixer.mixin([Eventable, Destroyable], (base) => {
         }
       }
 
-      Object.defineProperty(this, 'values', { enumerable: false, writable: true, value: {} })
+      Object.defineProperty(this, VALUES, { enumerable: false, writable: true, value: {} })
     }
 
     async set(values, options) {
-      await Promise.all(Object.entries(values).map(async ([k, v]) => {
+      for (const [k, v] of Object.entries(values)) {
         const property = this.constructor.properties.find((p) => p.name === k)
-        if (!property) { return }
+        if (!property) {
+          this[k] = v
+          continue
+          /*
+          console.trace(this, this.constructor, [...this.constructor.properties])
+          throw new Error(`Property ${k} not found`)
+          */
+        }
+
         await this.setPropertyValue(property, v, options)
-      }))
+      }
     }
 
     async propertyChanged(property, value, oldValue) {
-      await Promise.all([
-        this.emit('propertyChanged', [property, value, oldValue]),
-        this.emit(`propertyChanged:${property.name}`, [value, oldValue])
-      ])
+      await this.emit('propertyChanged', [property, value, oldValue])
+      await this.emit(`propertyChanged:${property.name}`, [value, oldValue])
+      await this.emit('changed')
     }
 
     async setPropertyValue(property, value, options) {
-      if (!this.values) {
-        this.values = {}
+      if (!this[VALUES]) {
+        this[VALUES] = {}
       }
-      const oldValue = this.values[property.name]
-      this.values[property.name] = value
+      const oldValue = this[VALUES][property.name]
+      this[VALUES][property.name] = value
+
       await this.propertyChanged(property, value, oldValue, options)
+      return value
     }
 
     destroy() {

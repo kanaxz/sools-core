@@ -5,6 +5,10 @@ const Eventable = require('../mixins/Eventable')
 
 module.exports = class IntermediateArray extends mixer.extends(Array, [Eventable, Destroyable, Bindeable]) {
 
+  static default() {
+    return new this()
+  }
+
   push(...args) {
     const result = super.push(...args)
     this.changed()
@@ -44,10 +48,8 @@ module.exports = class IntermediateArray extends mixer.extends(Array, [Eventable
   */
 
   async changed() {
-    await Promise.all([
-      this.emit('changed'),
-      this.emit('propertyChanged:length')
-    ])
+    await this.emit('changed')
+    await this.emit('propertyChanged:length')
   }
 
   remove(object) {

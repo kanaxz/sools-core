@@ -13,7 +13,6 @@ class Listener {
   }
 }
 
-
 const Eventable = mixer.mixin([Destroyable], (baseClass) => {
   return class Eventable extends baseClass {
     constructor(...args) {
@@ -68,7 +67,9 @@ const Eventable = mixer.mixin([Destroyable], (baseClass) => {
         this[events][eventName] = event
       }
       const listeners = [...event.listeners]
-      await Promise.all(listeners.map((l) => l.callback(...args)))
+      for (const listener of listeners) {
+        await listener.callback(...args)
+      }
     }
 
     off(eventName, callback) {

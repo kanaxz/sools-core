@@ -7,6 +7,9 @@ module.exports = (base) => {
       return this.allDependencies.some((d) => d === (mixin.mixin || mixin))
     }
 
+    static extends(){
+      return class extends this {}.define()
+    }
 
     static define(definition = {}) {
       if (this.definition?.owner === this) {
