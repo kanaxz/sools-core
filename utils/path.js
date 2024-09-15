@@ -1,4 +1,4 @@
-const set = (object, path, value) => {
+export const set = (object, path, value) => {
   const split = path.split('.')
   const name = split.pop()
   for (const segment of split) {
@@ -13,7 +13,7 @@ const set = (object, path, value) => {
  * @param {*} path 
  * @returns 
  */
-const get = (object, path) => {
+export const get = (object, path) => {
   const split = path.split('.')
   for (const segment of split) {
 
@@ -23,7 +23,7 @@ const get = (object, path) => {
   return object
 }
 
-const pathsCopy = (paths) => {
+export const pathsCopy = (paths) => {
   const copy = Object.entries(paths)
     .reduce((acc, [k, v]) => {
       if (typeof v === 'object') {
@@ -41,7 +41,7 @@ const pathsCopy = (paths) => {
  * @param {*} paths2 
  * @returns a - b 
  */
-const pathsDiff = (paths1, paths2) => {
+export const pathsDiff = (paths1, paths2) => {
   const diff = Object.entries(paths1)
     .reduce((acc, [propertyName, value1]) => {
       let value2 = paths2[propertyName]
@@ -65,12 +65,4 @@ const pathsDiff = (paths1, paths2) => {
     }, {})
 
   return diff
-}
-
-
-module.exports = {
-  set,
-  get,
-  pathsDiff,
-  pathsCopy,
 }

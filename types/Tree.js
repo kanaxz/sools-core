@@ -1,5 +1,5 @@
-const Mixin = require('../Mixin')
-const ExtensibleFunction = require('./ExtensibleFunction')
+import Mixin from '../Mixin.js'
+import ExtensibleFunction from './ExtensibleFunction.js'
 
 let id = 0
 class Tree extends ExtensibleFunction {
@@ -131,4 +131,4 @@ class Tree extends ExtensibleFunction {
 
 }
 
-module.exports = Tree
+export default Tree

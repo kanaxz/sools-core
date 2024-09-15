@@ -10,6 +10,6 @@ const validateType = (accept, type) => {
   })
 }
 
-module.exports = {
+export default {
   validateType,
 }

@@ -1,4 +1,4 @@
-const { set, get } = require('./path')
+import { set, get } from './path.js'
 
 const processMapping = (object, mapping) => {
   const processArg = (arg) => {
@@ -53,7 +53,7 @@ const values = (object) => {
   return objectEntries.map(([, value]) => value)
 }
 
-module.exports = {
+export default {
   processMapping,
   entries,
   keys,

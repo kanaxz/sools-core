@@ -1,5 +1,5 @@
-const mixer = require("../mixer")
-const Destroyable = require("./Destroyable")
+import mixer from "../mixer.js"
+import Destroyable from "./Destroyable.js"
 const events = Symbol("events")
 const otherEvents = Symbol("otherEvents")
 
@@ -108,4 +108,4 @@ Object.assign(Eventable, {
   otherEvents
 })
 
-module.exports = Eventable
+export default Eventable

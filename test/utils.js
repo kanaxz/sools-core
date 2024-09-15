@@ -8,6 +8,6 @@ const eventCallback = () => {
   return callback
 }
 
-module.exports = {
+export default {
   eventCallback
 }

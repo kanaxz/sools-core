@@ -1,5 +1,5 @@
 
-const wait = (duration) => {
+export const wait = (duration) => {
   const promise = new Promise((resolve, reject) => {
     setTimeout(resolve, duration)
   })
@@ -7,9 +7,9 @@ const wait = (duration) => {
   return promise
 }
 
-const immediate = () => wait(0)
+export const immediate = () => wait(0)
 
-const interval = (fn, duration) => {
+export const interval = (fn, duration) => {
   let force = false
   let stop = false
   let timeout
@@ -35,10 +35,4 @@ const interval = (fn, duration) => {
   result.stop = () => stop = true
   work()
   return result
-}
-
-module.exports = {
-  wait,
-  immediate,
-  interval,
 }

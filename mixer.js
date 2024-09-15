@@ -1,5 +1,5 @@
-const Mixin = require('./Mixin')
-const Base = require('./Base')
+import Mixin from './Mixin.js'
+import Base from './Base.js'
 const getMixin = (dependency) => {
   return dependency.mixin || dependency
 }
@@ -113,4 +113,4 @@ const mixer = {
 
 mixer.base = mixer.mixin(Base)
 
-module.exports = mixer
+export default mixer

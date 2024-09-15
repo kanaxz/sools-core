@@ -1,4 +1,4 @@
-const makeId = (length = 12) => {
+export const makeId = (length = 12) => {
   let result = '';
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   const charactersLength = characters.length;
@@ -8,9 +8,4 @@ const makeId = (length = 12) => {
     counter += 1;
   }
   return result
-}
-
-
-module.exports = {
-  makeId,
 }

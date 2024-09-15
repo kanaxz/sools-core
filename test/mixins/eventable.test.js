@@ -1,7 +1,7 @@
-const Eventable = require('../../mixins/Eventable')
-const mixer = require('../../mixer')
-const { expect, assert } = require('chai')
-const { eventCallback } = require('../utils')
+import Eventable from '../../mixins/Eventable.js'
+import mixer from '../../mixer.js'
+import { expect, assert } from 'chai.js'
+import { eventCallback } from '../utils.js'
 
 describe('eventable', (t) => {
   class Test extends mixer.extends([Eventable]) {

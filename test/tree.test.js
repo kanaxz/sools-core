@@ -1,5 +1,5 @@
-const Tree = require('../types/Tree')
-const { expect, assert } = require('chai')
+import Tree from '../types/Tree.js'
+import { expect, assert } from 'chai.js'
 
 describe('tree', (t) => {
 

@@ -6,6 +6,6 @@ const getDistance = (p1, p2) => {
   return Math.hypot(a, b)
 }
 
-module.exports = {
+export default {
   getDistance
 }

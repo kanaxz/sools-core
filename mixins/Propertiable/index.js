@@ -1,7 +1,7 @@
-const mixer = require("../../mixer");
-const Destroyable = require("../Destroyable")
-const Eventable = require('../Eventable')
-const Properties = require('./Properties')
+import mixer from "../../mixer";
+import Destroyable from "../Destroyable"
+import Eventable from '../Eventable.js'
+import Properties from './Properties.js'
 
 const VALUES = Symbol('values')
 
@@ -17,8 +17,6 @@ const mixin = mixer.mixin([Eventable, Destroyable], (base) => {
           return this[VALUES][property.name]
         },
         set: async function (newValue) {
-          if (this.destroyed) { return }
-          if (newValue === this[property.name]) { return }
           await this.setPropertyValue(property, newValue)
         },
         enumerable: true,
@@ -69,6 +67,9 @@ const mixin = mixer.mixin([Eventable, Destroyable], (base) => {
     }
 
     async setPropertyValue(property, value, options) {
+      if (this.destroyed) { return }
+      if (value === this[property.name]) { return }
+
       if (!this[VALUES]) {
         this[VALUES] = {}
       }
@@ -108,4 +109,4 @@ const mixin = mixer.mixin([Eventable, Destroyable], (base) => {
 })
   .define()
 
-module.exports = mixin
+export default mixin

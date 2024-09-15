@@ -1,5 +1,5 @@
 
-const forEach = (type, fn) => {
+export const forEach = (type, fn) => {
   while (type.prototype.__proto__) {
     const stop = fn(type)
     if (stop) {
@@ -9,7 +9,7 @@ const forEach = (type, fn) => {
   }
 }
 
-const get = (type) => {
+export const get = (type) => {
   const result = []
   forEach(type, (t) => {
     result.push(t)
@@ -17,11 +17,11 @@ const get = (type) => {
   return result
 }
 
-const getParent = (type) => {
+export const getParent = (type) => {
   return type.prototype.__proto__.constructor
 }
 
-const filter = (type, fn) => {
+export const filter = (type, fn) => {
   const result = []
   forEach(type, (parent) => {
     const match = fn(parent)
@@ -32,7 +32,7 @@ const filter = (type, fn) => {
   return result
 }
 
-const find = (type, fn) => {
+export const find = (type, fn) => {
   let result = null
   forEach(type, (parent) => {
     const match = fn(parent)
@@ -44,7 +44,7 @@ const find = (type, fn) => {
   return result
 }
 
-const getCommonAncestor = (...types) => {
+export const getCommonAncestor = (...types) => {
   let target = types[0]
   while (target) {
     let good = true
@@ -59,13 +59,4 @@ const getCommonAncestor = (...types) => {
     target = target.prototype.__proto__.constructor
   }
   return null
-}
-
-module.exports = {
-  get,
-  forEach,
-  filter,
-  find,
-  getParent,
-  getCommonAncestor,
 }

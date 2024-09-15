@@ -1,4 +1,4 @@
-const chain = (array, fn, final) => {
+export const chain = (array, fn, final) => {
   let index = 0
   const inner = () => {
     if (index === array.length) {
@@ -9,8 +9,4 @@ const chain = (array, fn, final) => {
     return fn(object, inner)
   }
   return inner()
-}
-
-module.exports = {
-  chain,
 }

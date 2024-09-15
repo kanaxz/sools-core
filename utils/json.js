@@ -4,6 +4,6 @@ const parse = (string) => {
 }
 
 
-module.exports = {
+export default {
   parse,
 }

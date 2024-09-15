@@ -1,6 +1,7 @@
-const Tree = require('../../types/Tree')
-const Mixin = require('../../Mixin')
-module.exports = class Properties extends Tree {
+import Tree from '../../types/Tree.js'
+import Mixin from '../../Mixin.js'
+export default (
+	class Properties extends Tree {
   constructor(owner) {
     super()
     this.owner = owner
@@ -45,3 +46,4 @@ module.exports = class Properties extends Tree {
     })
   }
 }
+)

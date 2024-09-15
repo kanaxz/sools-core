@@ -1,7 +1,7 @@
 
 
 
-module.exports = (...subConfigs) => {
+export default (...subConfigs) => {
 
   const config = {}
 

@@ -1,5 +1,5 @@
-const mixer = require('../mixer')
-const { expect, assert } = require('chai')
+import mixer from '../mixer.js'
+import { expect, assert } from 'chai.js'
 
 describe('base', (t) => {
 

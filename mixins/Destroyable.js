@@ -1,4 +1,4 @@
-const mixer = require('../mixer')
+import mixer from '../mixer.js'
 
 const Destroyable = mixer.mixin((base) => {
   return class Destroyable extends base {
@@ -26,4 +26,4 @@ const Destroyable = mixer.mixin((base) => {
 })
 
 
-module.exports = Destroyable
+export default Destroyable

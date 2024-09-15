@@ -1,6 +1,7 @@
-const Tree = require('./types/Tree')
+import Tree from './types/Tree.js'
 
-module.exports = class Definitions extends Tree {
+export default (
+	class Definitions extends Tree {
   constructor(owner) {
     super()
     this.push(owner.definition)
@@ -12,3 +13,4 @@ module.exports = class Definitions extends Tree {
       })
   }
 }
+)

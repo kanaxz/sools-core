@@ -1,6 +1,6 @@
-const { pathsCopy, pathsDiff } = require('../../utils/path')
-const mixer = require('../../mixer')
-const { expect, assert } = require('chai')
+import { pathsCopy, pathsDiff } from '../../utils/path.js'
+import mixer from '../../mixer.js'
+import { expect, assert } from 'chai.js'
 
 describe('utils.path', (t) => {
   it('copy', async () => {

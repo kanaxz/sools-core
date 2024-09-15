@@ -14,6 +14,6 @@ const find = (root, childsGetter, callback) => {
 }
 
 
-module.exports = {
+export default {
   find,
 }

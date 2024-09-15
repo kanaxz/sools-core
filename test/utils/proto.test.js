@@ -1,5 +1,5 @@
-const { getCommonAncestor } = require('../../utils/proto')
-const { expect, assert } = require('chai')
+import { getCommonAncestor } from '../../utils/proto.js'
+import { expect, assert } from 'chai.js'
 
 describe('utils.proto', (t) => {
   it('getCommonAncestor', async () => {

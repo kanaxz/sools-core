@@ -1,5 +1,7 @@
-const ExtensibleFunction = require('./ExtensibleFunction')
-module.exports = class Event extends ExtensibleFunction {
+import ExtensibleFunction from './ExtensibleFunction.js'
+
+export default (
+	class Event extends ExtensibleFunction {
   constructor(options = {}) {
     super((...args) => this.listen(...args))
     this.options = options
@@ -27,3 +29,5 @@ module.exports = class Event extends ExtensibleFunction {
     }
   }
 }
+
+)

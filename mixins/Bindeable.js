@@ -1,8 +1,8 @@
-const mixer = require("../mixer")
+import mixer from "../mixer.js"
 const symbol = Symbol("BindedFunctions")
-const Destroyable = require('./Destroyable')
+import Destroyable from './Destroyable.js'
 
-module.exports = mixer.mixin([Destroyable], (baseClass) => {
+export default mixer.mixin([Destroyable], (baseClass) => {
 
   return class Bindeable extends baseClass {
     constructor(...args) {

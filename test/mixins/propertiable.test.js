@@ -1,7 +1,7 @@
-const Propertiable = require('../../mixins/Propertiable')
-const mixer = require('../../mixer')
-const { expect, assert } = require('chai')
-const { eventCallback } = require('../utils')
+import Propertiable from '../../mixins/Propertiable.js'
+import mixer from '../../mixer.js'
+import { expect, assert } from 'chai.js'
+import { eventCallback } from '../utils.js'
 
 describe('propertiable', (t) => {
 

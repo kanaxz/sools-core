@@ -1,6 +1,6 @@
-const mixer = require("../mixer")
+import mixer from "../mixer"
 
-module.exports = mixer.mixin((baseClass) => {
+export default mixer.mixin((baseClass) => {
   return class Initializeable extends baseClass {
     constructor(...args){
       super(...args)

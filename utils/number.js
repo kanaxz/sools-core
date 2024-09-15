@@ -1,4 +1,4 @@
-const bound = (int, [min, max]) => {
+export const bound = (int, [min, max]) => {
   if (int < min) {
     return min
   }
@@ -8,7 +8,7 @@ const bound = (int, [min, max]) => {
   return int
 }
 
-const loop = (int, [min, max]) => {
+export const loop = (int, [min, max]) => {
   if (int < min) {
     return max
   }
@@ -18,12 +18,6 @@ const loop = (int, [min, max]) => {
   return int
 }
 
-const random = (min, max) => {
+export const random = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min)
-}
-
-module.exports = {
-  bound,
-  random,
-  loop,
 }

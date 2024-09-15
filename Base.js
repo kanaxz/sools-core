@@ -1,6 +1,6 @@
-const Definitions = require('./Definitions')
+import Definitions from './Definitions.js'
 
-module.exports = (base) => {
+export default (base) => {
   return class Base extends base {
 
     static hasMixin(mixin) {
