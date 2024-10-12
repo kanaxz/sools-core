@@ -8,7 +8,7 @@ export default (base) => {
     }
 
     static extends(){
-      return class extends this {}.define()
+      return class extends this {}
     }
 
     static define(definition = {}) {

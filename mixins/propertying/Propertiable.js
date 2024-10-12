@@ -1,5 +1,5 @@
-import mixer from "../../mixer";
-import Destroyable from "../Destroyable"
+import mixer from "../../mixer.js";
+import Destroyable from "../Destroyable.js"
 import Eventable from '../Eventable.js'
 import Properties from './Properties.js'
 
